@@ -1,0 +1,173 @@
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+pm.test("check answer", function () {
+pm.expect(pm.response.text()).to.include("This is the first responce from server!")
+});
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+pm.test("check answer", function () {
+pm.expect(pm.response.text()).to.include("This is the first responce from server!")
+});
+
+
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+var response = pm.response.json();
+pm.test("name = max", function () {
+    pm.expect(response.name).to.eql("max");
+});
+pm.test("age", function () {
+    pm.expect(response.age).to.eql("24");
+    });
+pm.test("salary",function () {
+    pm.expect(response.salary).to.eql(1000);
+});
+var request = request.data;
+pm.test("name = name",function () {
+    pm.expect(response.name).to.eql(request.name);
+});
+pm.test("age = age",function () {
+    pm.expect(response.age).to.eql(request.age);
+});
+pm.test("salary = salary",function () {
+    pm.expect(response.salary).to.eql(+request.salary);
+});
+console.log(response.family);
+pm.test("check u_salary_1_5_year",function(){
+  pm.expect(response.family.u_salary_1_5_year).to.eql 
+  (request.salary*4)
+})
+
+pm.test(" Verify status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+var response = pm.response.json();
+var req = pm.request.url.query.toObject()
+
+pm.test("check name", function () {
+    pm.expect(response.name).to.eql(req.name);
+});
+
+pm.test("check age", function () {
+      pm.expect(response.age).to.eql(req.age);
+});
+pm.test("check salary", function () {
+    pm.expect(response.salary).to.eql+(req.salary);
+});
+console.log (response.family);
+
+pm.test("check dogs name", function () {
+    pm.expect(response.family.pets.dog).to.have. 
+    property("name")
+});
+
+pm.test("check dogs age", function () {
+    pm.expect(response.family.pets.dog).to.have. 
+    property("age")
+});
+
+pm.test("check dog's name", function () {
+    pm.expect(response.family.pets.dog.name).to.eql("Luky");
+});
+
+pm.test("check dog's age", function () {
+    pm.expect(response.family.pets.dog.age).to.eql(4);
+});
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+var response = pm.response.json()
+var req = pm.request.url.query.toObject()
+
+pm.test("check name", function () {
+ pm.expect(response.name).to.eql(req.name);
+});
+
+pm.test("check age" , function() {
+    pm.expect(response.age).to.eql+(req.age);
+});
+console.log (req.salary)
+console.log(response.salary[0])
+console.log(response.salary[1])
+console.log(response.salary[2])
+
+pm.test("check element 0", function () {
+    pm.expect(response.salary[0]).to.eql+(req.family);
+});
+pm.test("check element 1", function () {
+    pm.expect(+response.salary[1]).to.eql(req.salary*2);
+});
+pm.test("check element 2", function () {
+    pm.expect(+response.salary[2]).to.eql(req.salary*3);
+});
+pm.environment.set("name", req.name)
+pm.environment.set("age", req.age)
+pm.environment.set("salary", req.salary)
+for (i in response.salary){
+    console.log("cycle " +i )
+}
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+var response = pm.response.json()
+var req = request.data
+pm.test("check parametr start_qa_salary", function () {
+     pm.expect(response).to.have.property
+     ("start_qa_salary")
+});
+pm.test("check parametr qa_salary_after_6_months", function () {
+     pm.expect(response).to.have.property
+     ("qa_salary_after_6_months")
+});
+
+pm.test("check parametr qa_salary_after_12_months", function () {
+     pm.expect(response).to.have.property
+     ("qa_salary_after_12_months")
+});
+pm.test("check parametr qa_salary_after_1.5_year", function () {
+     pm.expect(response).to.have.property
+     ("qa_salary_after_1.5_year")
+});
+pm.test("check parametr qa_salary_after_3.5_years", function () {
+     pm.expect(response).to.have.property
+     ("qa_salary_after_3.5_years")
+});
+pm.test("check parametr person", function () {
+    pm.expect(response).to.have.property("person");
+});
+
+pm.test("check start_qa_salary", function () {
+    pm.expect(response. start_qa_salary).to.eql+(req.salary);
+});
+pm.test("check qa_salary_after_6_months", function () {
+    pm.expect(response. qa_salary_after_6_months).to.eql(req.salary*2);
+});
+pm.test("check qa_salary_after_12_months", function () {
+    pm.expect(response.qa_salary_after_12_months ).to.eql(req.salary*2.7);
+});
+
+pm.test("check qa_salary_after_1.5_year ", function () {
+    pm.expect(response ["qa_salary_after_1_5_year"]).to.eql(req.salary[3.3]);
+});
+pm.test("check qa_salary_after_3.5_years ", function () {
+    pm.expect(response ["qa_salary_after_3.5_years"]).to.eql(req.salary*3.8);
+});
+
+pm.test("check the 1st element person", function () {
+    pm.expect(response.person.u_name[1]).to.eql(+req.salary);
+});
+
+pm.test("check parametr u_age  ", function () {
+    pm.expect(response.person.u_age).to.eql+(req.age);
+});
+
+pm.test("check parametr u_salary_5_years  ", function () {
+    pm.expect(response.person.u_salary_5_years).to.eql+(req.salary *4.2);
+});
+
+for (i in response.person){
+    console.log("cycle " +i )
+}
